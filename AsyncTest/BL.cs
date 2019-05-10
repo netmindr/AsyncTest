@@ -7,22 +7,18 @@ namespace DF.Test.AsyncTest
     public class BL
     {
         private string _alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        private int _alphaCounter = 1;
-        private int _counter = 1;
 
         public async Task<string> DoSomethingsNoAwaitAsync()
         {
             string response = String.Empty;
-
-            while (_counter <= 10)
+            
+            for (int i = 0; i <= 10; i++)
             {
                 // Awaited. So everything stops until this call returns
-                await ReturnInput(_counter);
+                await ReturnInput(i);
 
                 // Since this line is not awaited, execution continues in the while block and the work inside NextLetter continues in the background.
-                NextLetter(_counter);
-
-                _counter++;
+                NextLetter(i);
             }
 
             return response;
@@ -33,12 +29,15 @@ namespace DF.Test.AsyncTest
         //    return await ReturnInput(2);
         //}
 
+
+        // Waits for 1 second, then writes input
         private async Task ReturnInput(int input)
         {
             await Task.Delay(1000);
             Console.Write(input.ToString());
         }
 
+        // Finds letter associated with index, waits 5 seconds, then writes to Console
         private async Task NextLetter(int index)
         {
             string response = _alpha[index].ToString();
