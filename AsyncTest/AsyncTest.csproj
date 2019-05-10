@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>DF.Test.AsyncTest</AssemblyName>
+    <RootNamespace>DF.Test.AsyncTest</RootNamespace>
+  </PropertyGroup>
+
+</Project>
